@@ -44,6 +44,10 @@ const commands = {
   'run-agent': 'run_agent.js',
   'generate-tests': 'generate_tests.py',
   'theme-tokens': 'theme_tokens.py',
+  'inspect-canvas': 'inspect_canvas.py',
+  'inspect-extension': 'inspect_extension.py',
+  'capture-websocket': 'capture_websocket.py',
+  'enforce-budget': 'enforce_budget.py',
 };
 
 const script = commands[subcommand];
@@ -97,6 +101,10 @@ Commands:
   run-agent          Execute a build card with an AI coding agent
   generate-tests     Generate Playwright/Vitest tests from sweep data
   theme-tokens       Light/dark token pairing, contrast validation, semantic roles
+  inspect-canvas     Deep Canvas/WebGL/WASM inspection (Three.js, PixiJS, Babylon, raw WebGL)
+  inspect-extension  Browser extension & Electron/Tauri app analysis
+  capture-websocket  WebSocket/SSE/stream capture for real-time collaboration apps
+  enforce-budget     Performance budget enforcement (Core Web Vitals, resources, runtime)
 
 Examples:
   # Full recon in one command
@@ -124,6 +132,12 @@ Examples:
   reverse-engineer generate-tests re-myapp/02-evidence/sweep/interactions.json --out-dir tests
   reverse-engineer har-to-msw re-myapp/02-evidence/home/network.json --out msw-handlers.ts
   reverse-engineer theme-tokens re-myapp/03-docs/design-tokens.json --validate --wcag AA
+
+  # Phase 3: Canvas, Extensions, WebSockets, Performance
+  reverse-engineer inspect-canvas https://app.example.com ./re-canvas --engine three --duration 30
+  reverse-engineer inspect-extension ./my-extension.crx ./re-ext --type extension
+  reverse-engineer capture-websocket https://app.example.com ./re-ws --duration 60
+  reverse-engineer enforce-budget https://app.example.com ./budget.json --runs 3 --format github-annotation
 
 Run any command with --help for its specific options.
 `);
