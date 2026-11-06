@@ -16,10 +16,14 @@
     "a11y": "./scripts/a11y_walk.cjs",
     "fingerprint": "./scripts/fingerprint_stack.py",
     "har-to-contracts": "./scripts/har_to_contracts.py",
+    "har-to-msw": "./scripts/har_to_msw.py",
     "unpack-extension": "./scripts/unpack_extension.py",
     "scaffold": "./scripts/scaffold_workspace.js",
     "save-auth": "./scripts/save_auth.js",
-    "doctor": "./scripts/doctor.js"
+    "doctor": "./scripts/doctor.js",
+    "run-agent": "./scripts/run_agent.js",
+    "generate-tests": "./scripts/generate_tests.py",
+    "theme-tokens": "./scripts/theme_tokens.py"
   },
   "scripts": {
     "install:playwright": "npx playwright install chromium",

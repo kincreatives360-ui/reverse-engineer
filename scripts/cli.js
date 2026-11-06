@@ -36,10 +36,14 @@ const commands = {
   a11y: 'a11y_walk.cjs',
   fingerprint: 'fingerprint_stack.py',
   'har-to-contracts': 'har_to_contracts.py',
+  'har-to-msw': 'har_to_msw.py',
   'unpack-extension': 'unpack_extension.py',
   scaffold: 'scaffold_workspace.js',
   'save-auth': 'save_auth.js',
   doctor: 'doctor.js',
+  'run-agent': 'run_agent.js',
+  'generate-tests': 'generate_tests.py',
+  'theme-tokens': 'theme_tokens.py',
 };
 
 const script = commands[subcommand];
@@ -85,10 +89,14 @@ Commands:
   a11y               Accessibility tree, tab order, keyboard map
   fingerprint        Static stack fingerprint for a URL (no JS execution)
   har-to-contracts   Convert network HAR to API contract markdown
+  har-to-msw         Generate MSW handlers from network capture
   unpack-extension   Extract Chrome/Firefox extension manifest + file tree
   scaffold           Create workspace folder structure
   save-auth          Save login state for authenticated recon
   doctor             Check environment (Node, Python, Playwright)
+  run-agent          Execute a build card with an AI coding agent
+  generate-tests     Generate Playwright/Vitest tests from sweep data
+  theme-tokens       Light/dark token pairing, contrast validation, semantic roles
 
 Examples:
   # Full recon in one command
@@ -110,6 +118,12 @@ Examples:
 
   # Scaffold workspace
   reverse-engineer scaffold my-app --tier full
+
+  # Phase 2: Agent orchestration & test generation
+  reverse-engineer run-agent re-myapp/IMPLEMENTATION.md#F-001 --provider anthropic
+  reverse-engineer generate-tests re-myapp/02-evidence/sweep/interactions.json --out-dir tests
+  reverse-engineer har-to-msw re-myapp/02-evidence/home/network.json --out msw-handlers.ts
+  reverse-engineer theme-tokens re-myapp/03-docs/design-tokens.json --validate --wcag AA
 
 Run any command with --help for its specific options.
 `);
